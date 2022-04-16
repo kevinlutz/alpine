@@ -1,0 +1,52 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Photos</h1>
+
+<div id="photos">
+  <% @photos.each do |photo| %>
+    <%= render photo %>
+    <p>
+      <%= link_to "Show this photo", photo %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New photo", new_photo_path %>
+<br/>
+<br/>
+<%= link_to "Click me right now!" %>
+<br/>
+<br/>
+
+<div x-data="{ hello: 'Alpine is working!' }">
+  <span x-text="hello"></span>
+</div>
+<br/>
+<br/>
+
+<div x-data="{ show: false }">
+  <button x-on:click="show = !show"> Toggle </button>
+  <div x-show="show">Toggled!</div>
+</div>
+<br/>
+
+<div x-data="{number: 0}">
+  <button x-on:click="number++">Increment</button>
+  <div x-text="number"></div>
+  <div x-show="number >= 10">That's a really big number!</div>
+</div>
+<br/>
+
+<p>Type below to see text</p>
+<div x-data="{ name: ''}">
+  <input type="text" x-model="name">
+  <span x-text="name"></span>
+</div>
+<br/>
+
+<form x-data="{ name: ''}" x-on:submit.prevent="console.log(name)">
+  <input type="text" x-model="name">
+  <button type="submit">Submit</button>
+</form>
+<br/>
+
